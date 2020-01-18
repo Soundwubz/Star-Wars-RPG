@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Star Wars RPG</title>
+        <link href="./assets/css/reset.css" rel="stylesheet" type="text/css">
+        <link href="./assets/css/style.css" rel="stylesheet" type="text/css">
+        <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <h1>Star Wars RPG</h1>
+
+        <div id="charSelect">
+            <div class="character" id="0" value="0">
+                <div class="icon vader"></div>
+                <p>Darth Vader</p>
+                <p class="health">100</p>
+            </div>
+            <div class="character" id="1" value="1">
+                <div class="icon kylo"></div>
+                <p>Kylo Ren</p>
+                <p class="health">100</p>
+            </div>
+            <div class="character" id="2" value="2">
+                <div class="icon luke"></div>
+                <p>Luke Skywalker</p>
+                <p class="health">100</p>
+            </div>
+            <div class="character" id="3" value="3">
+                <div class="icon rey"></div>
+                <p>Rey Skywalker</p>
+                <p class="health">100</p>
+            </div>
+        </div>
+
+        <h2>Your Character</h2>
+        <div id="userCharacter"></div>
+
+        <h2>Enemies</h2>
+        <div id="enemies"></div>
+        
+        <h2>Fight Section</h2>
+        <div id="defender">
+            <h2>Defender</h2>
+        </div>
+        <button id="attack-btn">
+            <p>Attack</p>
+        </button>
+        <script src="./assets/javascript/game.js"></script>
+    </body>
+</html>
