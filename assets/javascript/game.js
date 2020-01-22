@@ -1,4 +1,6 @@
 $(document).ready(function() {
+
+    console.log("updated");
     
     var characters = [
         {
@@ -81,6 +83,31 @@ $(document).ready(function() {
         }
     }
 
+    function enemiesDefeated() {
+        let count = 0;
+        for(i = 0; i < enemies.length; i++) {
+            if(enemies[i].health < 1) {
+                count++;
+            }
+        }
+        if(count === 3) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    function gameOver(character) {
+        if(inBattle) { // if currently in battle
+            $('#' + character.id).css("display", "none"); // removes defeated enemy from screen
+        } else { // if no longer in battle
+            initGame(); // reset game
+        }
+    }
+    function gameWon(character) {
+        alert(character.name + ", you have deafeated all of the enemies! Congratulations!");
+        initGame();
+    }
+
     initGame();
 
     var usrChar;
@@ -89,13 +116,6 @@ $(document).ready(function() {
 
     var inBattle = false;
 
-    function gameOver(character) {
-        if(inBattle) { // if currently in battle
-            $('#' + character.id).css("display", "none"); // removes defeated enemy from screen
-        } else { // if no longer in battle
-            initGame(); // reset game
-        }
-    }
     
     $(".character").on("click", function(){
         var id = parseInt($(this).attr("value"));
@@ -143,6 +163,9 @@ $(document).ready(function() {
                     gameOver(usrChar);
                 } else { // only defender fell below 1 hp
                     alert(defender.name + " has been defeated!");
+                    if(enemiesDefeated()){
+                        gameWon(usrChar);
+                    }
                 }
                 return false;
             }
